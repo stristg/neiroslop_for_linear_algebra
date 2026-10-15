@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="ru" data-lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Функции: домашнее задание / Functions homework</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+/* PALETTE */:root{
+  --bg:#000000; --surface:rgba(10,10,10,.94); --panel:#151515; --line:#2b2b2b; --line2:#555555;
+  --accent:#ffffff; --accent2:#e8e8e8; --accent-deep:#9a9a9a; --ans:#3a3a3a;
+  --text:#ffffff; --muted:rgba(255,255,255,.76); --danger:#ffffff;
+  --pat:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNjAiIGhlaWdodD0iMzYwIiB2aWV3Qm94PSIwIDAgMzYwIDM2MCI+PGcgb3BhY2l0eT0iMC4xMCI+CjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CiA8cGF0aCBkPSJNOTYgOTYgcTE4IC0zNCAzNiAwIiB0cmFuc2Zvcm09InJvdGF0ZSgtMTQgMTE0IDkwKSIvPgogPHBhdGggZD0iTTIxNCAxNjggYzE0IC0yIDI0IC0xMiAzMiAtMzQiIHRyYW5zZm9ybT0icm90YXRlKDggMjMwIDE1MCkiLz4KIDxwYXRoIGQ9Ik0zMDAgMTc2IHE4IC0yNiAzNiAtMzAiIC8+CiA8cGF0aCBkPSJNMTAgMTYwIGgzNCBNMjcgMTQzIHYzNCIgLz4KIDxwYXRoIGQ9Ik0xNjggMTY4IGwxMCAxMCBtMCAtMTAgbC0xMCAxMCIgLz4KIDxwYXRoIGQ9Ik0yNCAyNjAgcTE2IC0zMCAzMiAwIiB0cmFuc2Zvcm09InJvdGF0ZSgxMiA0MCAyNTApIi8+CiA8cGF0aCBkPSJNMjcwIDI1MiBoMzQgTTI4NyAyMzYgdjMyIiAvPgogPHBhdGggZD0iTTE3OCAyNjAgbDIyIC0yMiBtLTIyIDAgbDIyIDIyIiAvPgogPGNpcmNsZSBjeD0iODYiIGN5PSIyNjIiIHI9IjYiLz48Y2lyY2xlIGN4PSIzMzAiIGN5PSIxMDAiIHI9IjUiLz48Y2lyY2xlIGN4PSI4IiBjeT0iMTAwIiByPSI1Ii8+PGNpcmNsZSBjeD0iMjUwIiBjeT0iMjAiIHI9IjQiLz4KIDxjaXJjbGUgY3g9IjEwOCIgY3k9IjMzNiIgcj0iNiIvPjxjaXJjbGUgY3g9IjM0MCIgY3k9IjMzNCIgcj0iNSIvPjxjaXJjbGUgY3g9IjE4OCIgY3k9IjM0NiIgcj0iNCIvPgogPHBhdGggZD0iTTI0MCAzNDAgcTEyIC0yMiAyNCAwIHQyNCAwIiAvPgo8L2c+PHRleHQgeD0iMjIiIHk9IjUyIiBmb250LXNpemU9IjM0IiB0cmFuc2Zvcm09InJvdGF0ZSgtMTAgMjIgNTIpIiBmb250LWZhbWlseT0iR2VvcmdpYSxUaW1lcyBOZXcgUm9tYW4sc2VyaWYiIGZvbnQtc3R5bGU9Iml0YWxpYyIgZmlsbD0iI2ZmZiI+eMKyPC90ZXh0Pjx0ZXh0IHg9IjEyMCIgeT0iNDAiIGZvbnQtc2l6ZT0iMjYiIHRyYW5zZm9ybT0icm90YXRlKDggMTIwIDQwKSIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsVGltZXMgTmV3IFJvbWFuLHNlcmlmIiBmb250LXN0eWxlPSJpdGFsaWMiIGZpbGw9IiNmZmYiPmxvZzwvdGV4dD48dGV4dCB4PSIxOTYiIHk9IjYyIiBmb250LXNpemU9IjM0IiB0cmFuc2Zvcm09InJvdGF0ZSgtNiAxOTYgNjIpIiBmb250LWZhbWlseT0iR2VvcmdpYSxUaW1lcyBOZXcgUm9tYW4sc2VyaWYiIGZvbnQtc3R5bGU9Iml0YWxpYyIgZmlsbD0iI2ZmZiI+ZcujPC90ZXh0Pjx0ZXh0IHg9IjI5MiIgeT0iNDgiIGZvbnQtc2l6ZT0iNDAiIHRyYW5zZm9ybT0icm90YXRlKDEyIDI5MiA0OCkiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLFRpbWVzIE5ldyBSb21hbixzZXJpZiIgZm9udC1zdHlsZT0iaXRhbGljIiBmaWxsPSIjZmZmIj7iiJo8L3RleHQ+PHRleHQgeD0iNjAiIHk9IjEyOCIgZm9udC1zaXplPSIzOCIgdHJhbnNmb3JtPSJyb3RhdGUoMTAgNjAgMTI4KSIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsVGltZXMgTmV3IFJvbWFuLHNlcmlmIiBmb250LXN0eWxlPSJub3JtYWwiIGZpbGw9IiNmZmYiPs+APC90ZXh0Pjx0ZXh0IHg9IjE1MCIgeT0iMTE4IiBmb250LXNpemU9IjMwIiB0cmFuc2Zvcm09InJvdGF0ZSgtMTIgMTUwIDExOCkiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLFRpbWVzIE5ldyBSb21hbixzZXJpZiIgZm9udC1zdHlsZT0iaXRhbGljIiBmaWxsPSIjZmZmIj5mKHgpPC90ZXh0Pjx0ZXh0IHg9IjI2MiIgeT0iMTI4IiBmb250LXNpemU9IjQwIiB0cmFuc2Zvcm09InJvdGF0ZSg2IDI2MiAxMjgpIiBmb250LWZhbWlseT0iR2VvcmdpYSxUaW1lcyBOZXcgUm9tYW4sc2VyaWYiIGZvbnQtc3R5bGU9Im5vcm1hbCIgZmlsbD0iI2ZmZiI+4oiRPC90ZXh0Pjx0ZXh0IHg9IjI2IiB5PSIyMTQiIGZvbnQtc2l6ZT0iMzAiIHRyYW5zZm9ybT0icm90YXRlKC04IDI2IDIxNCkiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLFRpbWVzIE5ldyBSb21hbixzZXJpZiIgZm9udC1zdHlsZT0iaXRhbGljIiBmaWxsPSIjZmZmIj5sbjwvdGV4dD48dGV4dCB4PSIxMDQiIHk9IjIwNiIgZm9udC1zaXplPSIzNCIgdHJhbnNmb3JtPSJyb3RhdGUoMTIgMTA0IDIwNikiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLFRpbWVzIE5ldyBSb21hbixzZXJpZiIgZm9udC1zdHlsZT0iaXRhbGljIiBmaWxsPSIjZmZmIj5hy6M8L3RleHQ+PHRleHQgeD0iMTk2IiB5PSIyMjIiIGZvbnQtc2l6ZT0iNDAiIHRyYW5zZm9ybT0icm90YXRlKC0xMCAxOTYgMjIyKSIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsVGltZXMgTmV3IFJvbWFuLHNlcmlmIiBmb250LXN0eWxlPSJub3JtYWwiIGZpbGw9IiNmZmYiPuKInjwvdGV4dD48dGV4dCB4PSIyOTAiIHk9IjIxNCIgZm9udC1zaXplPSIyOCIgdHJhbnNmb3JtPSJyb3RhdGUoOSAyOTAgMjE0KSIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsVGltZXMgTmV3IFJvbWFuLHNlcmlmIiBmb250LXN0eWxlPSJpdGFsaWMiIGZpbGw9IiNmZmYiPnk9eMKzPC90ZXh0Pjx0ZXh0IHg9IjUyIiB5PSIzMDQiIGZvbnQtc2l6ZT0iMzAiIHRyYW5zZm9ybT0icm90YXRlKDEwIDUyIDMwNCkiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLFRpbWVzIE5ldyBSb21hbixzZXJpZiIgZm9udC1zdHlsZT0iaXRhbGljIiBmaWxsPSIjZmZmIj5sZzwvdGV4dD48dGV4dCB4PSIxMzYiIHk9IjMwMCIgZm9udC1zaXplPSIzNCIgdHJhbnNmb3JtPSJyb3RhdGUoLTggMTM2IDMwMCkiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLFRpbWVzIE5ldyBSb21hbixzZXJpZiIgZm9udC1zdHlsZT0iaXRhbGljIiBmaWxsPSIjZmZmIj544oG7wrk8L3RleHQ+PHRleHQgeD0iMjI2IiB5PSIzMDYiIGZvbnQtc2l6ZT0iMjYiIHRyYW5zZm9ybT0icm90YXRlKDEyIDIyNiAzMDYpIiBmb250LWZhbWlseT0iR2VvcmdpYSxUaW1lcyBOZXcgUm9tYW4sc2VyaWYiIGZvbnQtc3R5bGU9Iml0YWxpYyIgZmlsbD0iI2ZmZiI+bG9n4oKCPC90ZXh0Pjx0ZXh0IHg9IjMwNiIgeT0iMzAwIiBmb250LXNpemU9IjM0IiB0cmFuc2Zvcm09InJvdGF0ZSgtMTIgMzA2IDMwMCkiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLFRpbWVzIE5ldyBSb21hbixzZXJpZiIgZm9udC1zdHlsZT0iaXRhbGljIiBmaWxsPSIjZmZmIj7iiJp4PC90ZXh0PjwvZz48L3N2Zz4=");
+  --sans:"Manrope","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --math:"STIX Two Text","Cambria Math",Georgia,"Times New Roman",serif;
+  color-scheme:dark;
+  box-sizing:border-box;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+body::before{content:"";position:fixed;top:0;right:0;bottom:0;left:0;z-index:-2;background-image:var(--pat);background-size:360px 360px;pointer-events:none}
+body::after{content:"";position:fixed;top:0;right:0;bottom:0;left:0;z-index:-1;background:radial-gradient(ellipse at 50% 40%,rgba(0,0,0,0) 35%,rgba(0,0,0,.72) 100%);pointer-events:none}
+html[data-lang="ru"] .en, html[data-lang="en"] .ru{display:none !important}
+[hidden]{display:none !important}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent2);outline-offset:3px}
+
+/* top bar */
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:1120px;margin:0 auto;padding:18px 24px 0}
+.brand{font-weight:800;letter-spacing:-.02em;text-shadow:0 0 14px #000,0 0 4px #000}
+.top-r{display:flex;align-items:center;gap:10px}
+.lang{display:inline-flex;border:1px solid var(--line2);border-radius:999px;padding:3px}
+.lang button{border:0;background:transparent;color:var(--muted);font-weight:700;font-size:.82rem;padding:5px 13px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:#fff;color:#000}
+.qbtn{display:none;border:1px solid var(--line2);background:var(--panel);border-radius:999px;font-weight:700;font-size:.85rem;padding:7px 14px;cursor:pointer}
+
+/* start */
+.start{max-width:600px;width:calc(100% - 32px);margin:6vh auto 40px;padding:36px 32px;background:var(--surface);border:1px solid var(--line);border-radius:22px}
+.start h1{font-size:clamp(2rem,6vw,3rem);line-height:1.08;letter-spacing:-.03em;font-weight:800;margin:0 0 14px}
+.start .sub{color:var(--muted);margin:0 0 28px}
+.facts{display:flex;flex-wrap:wrap;gap:8px 10px;margin:0 0 30px;padding:0;list-style:none}
+.facts li{border:1px solid var(--line2);background:var(--surface);border-radius:999px;padding:5px 14px;font-size:.88rem;font-weight:600}
+label.f{display:block;font-weight:700;margin-bottom:8px}
+label.f small{color:var(--muted);font-weight:500;margin-left:6px}
+.inp{width:100%;font:inherit;font-size:1.05rem;color:#fff;background:#0b0b0b;border:1.5px solid var(--line2);border-radius:12px;padding:14px 16px}
+.inp::placeholder{color:rgba(255,255,255,.45)}
+.inp[aria-invalid="true"]{border-color:var(--danger)}
+.err{color:var(--danger);font-weight:700;font-size:.92rem;margin:8px 0 0;min-height:1.4em}
+.err:not(:empty)::before{content:"! ";font-weight:800}
+.hint{color:var(--muted);font-size:.9rem;margin:6px 0 22px}
+.btn{min-height:46px;min-width:120px;border:1.5px solid var(--line2);background:var(--panel);border-radius:12px;padding:12px 22px;font-weight:700;cursor:pointer}
+.btn:hover:not(:disabled){border-color:var(--accent2)}
+.btn:disabled{opacity:.35;cursor:default}
+.btn.pri{background:#fff;color:#000;border-color:#fff}
+.btn.pri:hover:not(:disabled){background:#dcdcdc;border-color:#dcdcdc}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.linkbtn{background:none;border:0;color:var(--accent2);font-weight:700;cursor:pointer;padding:6px 2px;text-decoration:underline;text-underline-offset:3px}
+
+/* test */
+.test{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:24px;max-width:1120px;margin:0 auto;padding:18px 24px 56px;align-items:start}
+.prog{grid-column:1 / -1;display:flex;align-items:center;gap:14px;font-size:.9rem;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 16px}
+.prog .bar{flex:1;height:6px;border-radius:99px;background:var(--line);overflow:hidden}
+.prog .bar i{display:block;height:100%;background:#fff;width:0;transition:width .25s}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:30px 32px 26px}
+.tag{display:inline-block;border:1px solid var(--line2);border-radius:999px;padding:2px 12px;font-size:.8rem;font-weight:700;color:var(--accent2);margin-bottom:10px}
+.qno{color:var(--muted);font-weight:600;font-size:.92rem;margin:0 0 8px}
+.qtext{font-size:1.28rem;line-height:1.55;font-weight:600;margin:0 0 24px}
+.opts{display:grid;gap:12px;margin:0 0 6px}
+.opt{display:flex;align-items:center;gap:14px;text-align:left;width:100%;background:var(--panel);border:1.5px solid var(--line);border-radius:14px;padding:14px 18px;cursor:pointer;font-size:1.08rem;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--accent2)}
+.opt .bd{flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-weight:800;background:var(--bg);border:1.5px solid var(--line2)}
+.opt[aria-checked="true"]{background:#fff;color:#000;border-color:#fff}
+.opt[aria-checked="true"] .bd{background:#000;border-color:#000;color:#fff}
+.clr{min-height:2rem;margin:4px 0 14px}
+.bottom{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:20px}
+
+/* panel */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:20px;position:sticky;top:16px;max-height:calc(100vh - 32px);overflow-y:auto}
+.panel h2{font-size:1rem;margin:0 0 4px}
+.panel .cnt{color:var(--muted);font-size:.88rem;margin:0 0 14px}
+.grp{margin:0 0 14px}
+.grp h3{font-size:.8rem;font-weight:700;color:var(--accent2);margin:0 0 8px}
+.ng{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}
+.n{height:36px;border-radius:10px;border:1px solid var(--line2);background:var(--bg);font-weight:700;font-size:.92rem;cursor:pointer}
+.n:hover{border-color:var(--accent2)}
+.n.a{background:#3a3a3a;border-color:#9a9a9a}
+.n.c{background:#fff;color:#000;border-color:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.28)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.78rem;color:var(--muted);margin:2px 0 16px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px;border:1px solid var(--line2);background:var(--bg)}
+.legend i.a{background:#3a3a3a;border-color:#9a9a9a}
+.legend i.c{background:#fff;border-color:#fff}
+.panel .btn{width:100%}
+#backdrop{position:fixed;top:0;right:0;bottom:0;left:0;background:rgba(5,3,12,.65);z-index:15}
+
+/* finish */
+.finish{max-width:740px;width:calc(100% - 32px);margin:4vh auto 40px;padding:32px;background:var(--surface);border:1px solid var(--line);border-radius:22px}
+.finish .card{background:#0f0f0f}
+.finish h1{font-size:clamp(1.8rem,5vw,2.6rem);letter-spacing:-.03em;line-height:1.1;margin:0 0 12px}
+.finish .card{margin:20px 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0}
+.chip{border:1px dashed #fff;color:#fff;background:transparent;border-radius:999px;min-width:42px;padding:3px 12px;font-weight:700;cursor:pointer}
+.code{width:100%;min-height:120px;resize:vertical;font:500 .95rem/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#fff;background:var(--bg);border:1.5px solid #8a8a8a;border-radius:12px;padding:14px;word-break:break-all}
+.ok{color:#fff;font-weight:700;font-size:.92rem}
+.ok::before{content:"✓ "}
+
+#startBtn{min-width:170px}
+.opts{grid-gap:12px}.ng{grid-gap:7px}.test{grid-gap:24px}
+#jsErr{background:#fff;color:#000;font-weight:700;padding:12px 18px;margin:0;font-size:.95rem;line-height:1.45}
+#jsErr small{display:block;font-weight:500;opacity:.75;margin-top:4px;word-break:break-all}
+/* math */
+.m{font-family:var(--math);font-size:1.12em;white-space:nowrap}
+.m i{font-style:italic}
+.m .fn{font-style:normal}
+.m sub,.m sup{font-size:.72em;line-height:0}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .12em;font-size:.88em;line-height:1.2}
+.fr>span:first-child{border-bottom:1.3px solid currentColor;padding:0 .22em}
+.fr>span:last-child{padding:0 .22em}
+.rad .ov{border-top:1.3px solid currentColor;padding:0 .12em;margin-left:1px}
+
+@media (max-width:900px){
+  .test{grid-template-columns:minmax(0,1fr);padding:14px 16px 40px}
+  .qbtn{display:inline-flex}
+  .panel{position:fixed;left:0;right:0;bottom:0;top:auto;max-height:78%;overflow:auto;border-radius:20px 20px 0 0;z-index:20;transform:translateY(105%);transition:transform .25s;padding-bottom:calc(20px + env(safe-area-inset-bottom,0px))}
+  .panel.open{transform:none}
+  .card{padding:22px 18px 20px}
+  .qtext{font-size:1.15rem}
+  .top{padding:14px 16px 0}
+}
+@media (prefers-reduced-motion:reduce){.panel,.prog .bar i{transition:none}}
+</style>
+</head>
+<body>
+<noscript><p id="jsErr"><span class="ru">Для работы теста нужен JavaScript. Откройте файл в Chrome, Safari или Edge.</span><span class="en">The test needs JavaScript. Open the file in Chrome, Safari or Edge.</span></p></noscript>
+<p id="jsErr2" hidden></p>
+
+<header class="top">
+  <div class="brand"><span class="ru">Функции · домашнее задание</span><span class="en">Functions · homework</span></div>
+  <div class="top-r">
+    <button type="button" class="qbtn" id="qbtn" hidden></button>
+    <div class="lang" role="group" aria-label="Language / Язык">
+      <button type="button" data-set="ru" aria-pressed="true">RU</button>
+      <button type="button" data-set="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<!-- START -->
+<main class="start" id="scStart">
+  <h1><span class="ru">Степенная, показательная и логарифмическая функции</span><span class="en">Power, exponential and logarithmic functions</span></h1>
+  <p class="sub ru">Тест в формате CSCA: у каждого вопроса четыре варианта ответа, один верный. Вопросы на английском, как на экзамене.</p>
+  <p class="sub en">A CSCA-style test: every question has four options and one correct answer. Questions are in English, as in the exam.</p>
+  <ul class="facts">
+    <li><span class="ru">50 вопросов</span><span class="en">50 questions</span></li>
+    <li><span class="ru">4 варианта ответа</span><span class="en">4 options each</span></li>
+    <li><span class="ru">Без таймера</span><span class="en">No timer</span></li>
+  </ul>
+  <label class="f" for="name"><span class="ru">Ваше имя и фамилия</span><span class="en">Your full name</span><small class="ru">обязательно</small><small class="en">required</small></label>
+  <input class="inp" id="name" type="text" maxlength="60" autocomplete="name" required aria-describedby="nameErr">
+  <p class="err" id="nameErr" role="alert"></p>
+  <p class="hint ru">Имя будет зашифровано внутри итоговой строки, которую вы отправите на проверку.</p>
+  <p class="hint en">Your name will be encrypted inside the final string that you send for checking.</p>
+  <div class="row">
+    <button type="button" class="btn pri" id="startBtn"><span class="ru">Начать тест</span><span class="en">Start the test</span></button>
+    <button type="button" class="linkbtn" id="resetBtn" hidden><span class="ru">Начать заново</span><span class="en">Start over</span></button>
+  </div>
+</main>
+
+<!-- TEST -->
+<div class="test" id="scTest" hidden>
+  <div class="prog"><span id="progTxt"></span><div class="bar"><i id="progBar"></i></div><span id="whoTxt"></span></div>
+  <section class="card" aria-live="polite">
+    <span class="tag" id="qTag"></span>
+    <p class="qno" id="qNo"></p>
+    <p class="qtext" id="qText"></p>
+    <div class="opts" id="opts" role="radiogroup" aria-label="Answer options"></div>
+    <div class="clr"><button type="button" class="linkbtn" id="clrBtn" hidden><span class="ru">Сбросить ответ</span><span class="en">Clear answer</span></button></div>
+    <div class="bottom">
+      <button type="button" class="btn" id="prevBtn"><span class="ru">← Назад</span><span class="en">← Back</span></button>
+      <button type="button" class="btn pri" id="nextBtn"></button>
+    </div>
+  </section>
+  <aside class="panel" id="panel" aria-label="Questions">
+    <h2><span class="ru">Вопросы</span><span class="en">Questions</span></h2>
+    <p class="cnt" id="panelCnt"></p>
+    <div id="groups"></div>
+    <div class="legend">
+      <span><i class="c"></i><span class="ru">текущий</span><span class="en">current</span></span>
+      <span><i class="a"></i><span class="ru">с ответом</span><span class="en">answered</span></span>
+      <span><i></i><span class="ru">без ответа</span><span class="en">unanswered</span></span>
+    </div>
+    <button type="button" class="btn" id="finBtn"><span class="ru">Завершить тест</span><span class="en">Finish test</span></button>
+  </aside>
+</div>
+<div id="backdrop" hidden></div>
+
+<!-- FINISH -->
+<main class="finish" id="scFinish" hidden>
+  <h1><span class="ru">Завершение теста</span><span class="en">Finishing the test</span></h1>
+  <p id="finSummary"></p>
+  <div id="finUn"></div>
+  <section class="card">
+    <h2 style="margin:0 0 6px;font-size:1.1rem"><span class="ru">Ваша зашифрованная строка</span><span class="en">Your encrypted string</span></h2>
+    <p class="hint ru" style="margin-top:0">Скопируйте строку целиком и отправьте её Claude в чат. Он проверит ответы и покажет номера вопросов с ошибками. Внутри зашифрованы ваше имя и ответы.</p>
+    <p class="hint en" style="margin-top:0">Copy the whole string and send it to Claude in the chat. It will check the answers and show the numbers of the questions with mistakes. Your name and answers are encrypted inside.</p>
+    <textarea class="code" id="code" readonly spellcheck="false" aria-label="Encrypted string"></textarea>
+    <div class="row" style="margin-top:12px">
+      <button type="button" class="btn pri" id="copyBtn"><span class="ru">Скопировать</span><span class="en">Copy</span></button>
+      <span class="ok" id="copied" hidden><span class="ru">Скопировано</span><span class="en">Copied</span></span>
+    </div>
+  </section>
+  <div class="row">
+    <button type="button" class="btn" id="backBtn"><span class="ru">← Вернуться к вопросам</span><span class="en">← Back to the questions</span></button>
+  </div>
+</main>
+
+<script>
+(function(){
+  try{
+    if(window.NodeList && !NodeList.prototype.forEach) NodeList.prototype.forEach = Array.prototype.forEach;
+    if(!Element.prototype.matches) Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+    if(!Element.prototype.closest) Element.prototype.closest = function(s){ var e=this; while(e && e.nodeType===1){ if(e.matches(s)) return e; e=e.parentElement; } return null; };
+    if(!Math.imul) Math.imul = function(a,b){ var ah=(a>>>16)&0xffff, al=a&0xffff, bh=(b>>>16)&0xffff, bl=b&0xffff; return ((al*bl)+(((ah*bl+al*bh)<<16)>>>0)|0); };
+    if(typeof TextEncoder==='undefined'){
+      window.TextEncoder = function(){};
+      window.TextEncoder.prototype.encode = function(str){ var s=unescape(encodeURIComponent(str)), a=[], i; for(i=0;i<s.length;i++) a.push(s.charCodeAt(i)); return a; };
+    }
+  }catch(e){}
+  window.onerror = function(msg){
+    var b = document.getElementById('jsErr2'); if(!b) return;
+    b.id = 'jsErr'; b.hidden = false;
+    b.innerHTML = 'Браузер не смог запустить тест. Откройте файл в Chrome, Safari или Edge (не во встроенном просмотрщике мессенджера). / The browser could not run the test. Open the file in Chrome, Safari or Edge (not inside a messenger viewer).<small></small>';
+    b.getElementsByTagName('small')[0].textContent = String(msg);
+  };
+})();
+</script>
+<script>
+(function(){
+var Q = [{"q": "Which of the following is a power function?", "o": ["$y = 2^{x}$", "$y = 3x^{2}$", "$y = x^{-3}$", "$y = x^{2} + x$"]}, {"q": "What is the domain of the function $f(x) = x^{-1/2}$?", "o": ["$(0, +∞)$", "ℝ", "$[0, +∞)$", "$(-∞, 0) ∪ (0, +∞)$"]}, {"q": "The graph of the power function $f(x) = x^{α}$ passes through the point $(4, 2)$. What is $f(9)$?", "o": ["9", "18", "81", "3"]}, {"q": "Which of the following power functions is even and decreasing on $(0, +∞)$?", "o": ["$y = x^{2}$", "$y = x^{-2}$", "$y = x^{-1}$", "$y = x^{1/2}$"]}, {"q": "Evaluate $(frac{27}{8})^{-2/3}$.", "o": ["$frac{9}{4}$", "$frac{2}{3}$", "$frac{4}{9}$", "$frac{3}{2}$"]}, {"q": "For $a > 0$, simplify $a^{1/2} · a^{1/3} ÷ a^{1/6}$.", "o": ["$a^{2/3}$", "$a^{1/3}$", "$a$", "$a^{5/6}$"]}, {"q": "If $f(x) = (m^{2} - m - 1)x^{m}$ is a power function, what are the possible values of $m$?", "o": ["$m = 2$ only", "$m = -1$ or $m = 2$", "$m = -1$ only", "$m = 1$ or $m = -2$"]}, {"q": "Let $a = 1.1^{-1/2}$, $b = 0.9^{-1/2}$ and $c = 1$. Which of the following is correct?", "o": ["$a > b > c$", "$c > a > b$", "$a > c > b$", "$b > c > a$"]}, {"q": "For $0 < x < 1$, which ordering of $x^{2}$, $x$ and $sqrt{x}$ is correct?", "o": ["$x^{2} < x < sqrt{x}$", "$sqrt{x} < x < x^{2}$", "$x < x^{2} < sqrt{x}$", "$x^{2} < sqrt{x} < x$"]}, {"q": "The power function $f(x) = x^{α}$ satisfies $f(2) = frac{1}{8}$. What is $f(-2)$?", "o": ["$frac{1}{8}$", "$-8$", "$-frac{1}{8}$", "$8$"]}, {"q": "Which of the following is an exponential function?", "o": ["$y = x^{3}$", "$y = 4^{-x}$", "$y = (-2)^{x}$", "$y = 2 · 3^{x}$"]}, {"q": "What are the domain and range of $y = 2^{x} + 1$?", "o": ["Domain ℝ, range $(0, +∞)$", "Domain ℝ, range $[1, +∞)$", "Domain $(0, +∞)$, range ℝ", "Domain ℝ, range $(1, +∞)$"]}, {"q": "The graph of $y = a^{x-1} + 2$ ($a > 0$, $a ≠ 1$) always passes through the fixed point", "o": ["$(1, 3)$", "$(0, 1)$", "$(1, 2)$", "$(0, 3)$"]}, {"q": "Solve the equation $4^{x} = 8$.", "o": ["$x = 2$", "$x = frac{2}{3}$", "$x = frac{3}{2}$", "$x = 3$"]}, {"q": "Solve the equation $9^{x} - 4 · 3^{x} - 45 = 0$.", "o": ["$x = 3$", "$x = 2$", "$x = 9$", "$x = -5$"]}, {"q": "Find the solution set of the inequality $(frac{1}{2})^{x} > 4$.", "o": ["$x > -2$", "$x > 2$", "$x < 2$", "$x < -2$"]}, {"q": "Let $a = (frac{1}{3})^{-0.5}$, $b = 3^{0.2}$ and $c = (frac{1}{3})^{0.3}$. Then", "o": ["$a > b > c$", "$b > a > c$", "$c > b > a$", "$a > c > b$"]}, {"q": "What is the range of $f(x) = (frac{1}{2})^{x^{2} - 2x}$?", "o": ["$[2, +∞)$", "$(0, 2]$", "$(0, frac{1}{2}]$", "$(0, +∞)$"]}, {"q": "Which statement about $f(x) = 2^{-x^{2}}$ is correct?", "o": ["Decreasing on $(-∞, 0]$ and increasing on $[0, +∞)$", "Increasing on ℝ", "Increasing on $(-∞, 0]$ and decreasing on $[0, +∞)$", "Decreasing on ℝ"]}, {"q": "If $f(x) = 3^{x-1}$, then $f(3) + f(1) =$", "o": ["9", "11", "12", "10"]}, {"q": "What is the minimum value of $f(x) = 4^{x} - 2^{x+1} + 3$?", "o": ["1", "2", "3", "0"]}, {"q": "The graph of $f(x) = a^{x}$ ($a > 0$, $a ≠ 1$) passes through the point $(2, 9)$. What is $f(-1)$?", "o": ["$frac{1}{3}$", "$3$", "$-3$", "$-frac{1}{3}$"]}, {"q": "If $log_{a} 27 = frac{3}{2}$, then $a =$", "o": ["3", "6", "81", "9"]}, {"q": "Evaluate $log_{2} 8 + log_{3} frac{1}{9} - ln e$.", "o": ["1", "−1", "0", "2"]}, {"q": "What is the domain of $f(x) = log_{2}(3 - x) + sqrt{x + 1}$?", "o": ["$(-∞, 3)$", "$[-1, 3)$", "$(-1, 3)$", "$[-1, 3]$"]}, {"q": "If $lg 2 = a$ and $lg 3 = b$, then $lg 12 =$", "o": ["$2a + b$", "$a + b$", "$a + 2b$", "$2ab$"]}, {"q": "$log_{4} 9 =$", "o": ["$log_{3} 2$", "$2 log_{2} 3$", "$log_{2} 3$", "$frac{1}{2} log_{2} 3$"]}, {"q": "The graph of $y = log_{a}(x + 2) - 1$ ($a > 0$, $a ≠ 1$) always passes through the fixed point", "o": ["$(-2, -1)$", "$(-1, 0)$", "$(1, -1)$", "$(-1, -1)$"]}, {"q": "Solve the equation $log_{2} x + log_{2}(x - 2) = 3$.", "o": ["$x = -2$", "$x = 4$", "$x = 4$ or $x = -2$", "$x = 2$"]}, {"q": "Find the solution set of $log_{1/2}(x - 1) > -1$.", "o": ["$1 < x < 3$", "$x > 3$", "$x < 3$", "$0 < x < 2$"]}, {"q": "Let $a = log_{2} 3$, $b = log_{3} 2$ and $c = log_{2} frac{1}{3}$. Then", "o": ["$b > a > c$", "$a > c > b$", "$a > b > c$", "$c > a > b$"]}, {"q": "What is the range of $f(x) = log_{2}(x^{2} + 4)$?", "o": ["$[0, +∞)$", "$(-∞, 2]$", "ℝ", "$[2, +∞)$"]}, {"q": "The inverse function of $f(x) = e^{x-1}$ is", "o": ["$y = ln x - 1$", "$y = ln x + 1$", "$y = ln(x + 1)$", "$y = e^{1-x}$"]}, {"q": "The increasing interval of $f(x) = log_{1/2}(x^{2} - 4x + 3)$ is", "o": ["$(-∞, 1)$", "$(3, +∞)$", "$(-∞, 2)$", "$(2, +∞)$"]}, {"q": "Evaluate $log_{2} 12 - log_{2} 3 + log_{5} sqrt{5}$.", "o": ["$frac{3}{2}$", "$3$", "$frac{5}{2}$", "$2$"]}, {"q": "Let $a = 2^{0.3}$, $b = log_{2} 0.3$ and $c = 0.3^{2}$. Then", "o": ["$a > b > c$", "$c > a > b$", "$b > a > c$", "$a > c > b$"]}, {"q": "The graph of $y = a^{x}$ ($a > 0$, $a ≠ 1$) is symmetric to the graph of $y = f(x)$ about the line $y = x$, and $f(9) = 2$. What is $a$?", "o": ["−3", "3", "9", "$frac{1}{3}$"]}, {"q": "Which of the following functions is increasing on $(0, +∞)$?", "o": ["$y = x^{2/3}$", "$y = x^{-1}$", "$y = (frac{1}{2})^{x}$", "$y = log_{1/3} x$"]}, {"q": "If $2^{x} = 5$, then $x =$", "o": ["$frac{lg 2}{lg 5}$", "$lg 5 - lg 2$", "$frac{lg 5}{lg 2}$", "$frac{5}{2}$"]}, {"q": "Evaluate $8^{1/3} + log_{3} 81 - (frac{1}{2})^{-1}$.", "o": ["2", "6", "8", "4"]}, {"q": "The function $f(x) = 2^{x} - 2^{-x}$ is", "o": ["odd and decreasing on ℝ", "even and increasing on ℝ", "odd and increasing on ℝ", "neither odd nor even"]}, {"q": "What is the domain of $f(x) = ln(x^{2} - 4)$?", "o": ["$(-2, 2)$", "$(-∞, -2) ∪ (2, +∞)$", "$(2, +∞)$", "$[-2, 2]$"]}, {"q": "The graph of $y = log_{2} x$ is shifted 3 units to the right and 1 unit up. The resulting function is", "o": ["$y = log_{2}(x + 3) + 1$", "$y = log_{2}(x - 3) - 1$", "$y = log_{2}(x + 3) - 1$", "$y = log_{2}(x - 3) + 1$"]}, {"q": "Which statement about $f(x) = x^{1/3}$ is correct?", "o": ["Domain ℝ, odd and increasing", "Domain $[0, +∞)$, increasing", "Domain ℝ, even and increasing", "Domain ℝ, odd and decreasing"]}, {"q": "Find the solution set of $2^{x^{2} - 3} < 2^{2x}$.", "o": ["$x < -1$ or $x > 3$", "$-3 < x < 1$", "$-1 < x < 3$", "$x < 3$"]}, {"q": "Solve the equation $log_{3}(2x + 1) = log_{3}(x + 4)$.", "o": ["$x = -3$", "$x = 3$", "$x = 5$", "$x = frac{5}{3}$"]}, {"q": "If $lg x = 2 lg 3 - lg 2$, then $x =$", "o": ["$4$", "$frac{3}{2}$", "$frac{9}{4}$", "$frac{9}{2}$"]}, {"q": "The graphs of $y = 2^{x}$ and $y = (frac{1}{2})^{x}$ are symmetric about", "o": ["the $x$-axis", "the origin", "the $y$-axis", "the line $y = x$"]}, {"q": "The inverse function of $f(x) = 3^{x} + 1$ is", "o": ["$y = log_{3}(x - 1)$", "$y = log_{3} x - 1$", "$y = log_{3}(x + 1)$", "$y = 3^{x-1}$"]}, {"q": "Solve the equation $2^{2x} - 5 · 2^{x} + 4 = 0$.", "o": ["$x = 1$ or $x = 4$", "$x = 0$ or $x = 2$", "$x = 0$ only", "$x = 2$ only"]}];
+var N = Q.length, LET = ['A','B','C','D'];
+var KEY = 'csca-functions-hw50-v1';
+var SEED = 0x7A31C5E9;
+var S = {screen:'start', idx:0, ans:[], name:'', started:false};
+for(var z=0; z<N; z++) S.ans.push(null);
+var root = document.documentElement;
+function $(id){ return document.getElementById(id); }
+function lang(){ return root.dataset.lang; }
+function T(ru,en){ return lang()==='ru' ? ru : en; }
+var TOPICS = [
+  {from:0,  to:9,  ru:'Степенные функции',     en:'Power functions'},
+  {from:10, to:21, ru:'Показательные функции', en:'Exponential functions'},
+  {from:22, to:34, ru:'Логарифмические функции', en:'Logarithmic functions'},
+  {from:35, to:49, ru:'Смешанные задачи', en:'Mixed problems'}
+];
+function topicOf(i){ for(var k=0;k<TOPICS.length;k++) if(i>=TOPICS[k].from && i<=TOPICS[k].to) return TOPICS[k]; return TOPICS[0]; }
+
+/* ---------- math markup ---------- */
+function esc(t){ return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function mj(s){
+  var i = 0, out = '';
+  function grp(){
+    var d = 0, st = i + 1;
+    for(; i < s.length; i++){
+      if(s[i]==='{') d++;
+      else if(s[i]==='}'){ d--; if(d===0){ var inner = s.slice(st,i); i++; return inner; } }
+    }
+    return s.slice(st);
+  }
+  while(i < s.length){
+    var rest = s.slice(i), m, ch = rest[0];
+    if((m = /^(log|ln|lg)/.exec(rest))){ out += '<span class="fn">'+m[1]+'</span>'; i += m[1].length; }
+    else if(rest.indexOf('sqrt{')===0){ i += 4; var g = grp(); out += '<span class="rad">√<span class="ov">'+mj(g)+'</span></span>'; }
+    else if(rest.indexOf('frac{')===0){ i += 4; var a = grp(), b = ''; if(s[i]==='{') b = grp(); out += '<span class="fr"><span>'+mj(a)+'</span><span>'+mj(b)+'</span></span>'; }
+    else if(ch==='^' || ch==='_'){
+      i++; var e;
+      if(s[i]==='{') e = grp(); else { e = s[i] || ''; i++; }
+      out += (ch==='^' ? '<sup>' : '<sub>') + mj(e) + (ch==='^' ? '</sup>' : '</sub>');
+    }
+    else if(/[a-zA-Zα-ω]/.test(ch)){ out += '<i>'+ch+'</i>'; i++; }
+    else if(ch==='-'){ out += '−'; i++; }
+    else if(ch==='<'){ out += '&lt;'; i++; }
+    else if(ch==='>'){ out += '&gt;'; i++; }
+    else if(ch==='&'){ out += '&amp;'; i++; }
+    else { out += ch; i++; }
+  }
+  return out;
+}
+function rich(t){
+  return t.split('$').map(function(p,i){ return i%2 ? '<span class="m">'+mj(p)+'</span>' : esc(p); }).join('');
+}
+
+/* ---------- storage ---------- */
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify({name:S.name, ans:S.ans, idx:S.idx, started:S.started})); }catch(e){} }
+function load(){
+  try{
+    var d = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if(d && d.ans && d.ans.length===N){ S.name = d.name || ''; S.ans = d.ans; S.idx = Math.min(Math.max(+d.idx||0,0),N-1); S.started = !!d.started; }
+  }catch(e){}
+}
+
+/* ---------- encryption (reversible; checked by Claude) ---------- */
+function ks(seed){ var x = seed>>>0; return function(){ x = (Math.imul(x,1664525)+1013904223)>>>0; return (x>>>24)&255; }; }
+function checksum(b){ var a=1, c=0; for(var i=0;i<b.length;i++){ a=(a+b[i])%251; c=(c+a)%251; } return [a,c]; }
+function b64url(arr){ return btoa(String.fromCharCode.apply(null,arr)).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,''); }
+function encode(name, answers){
+  var payload = JSON.stringify({n:name, a:answers.map(function(v){ return v===null ? '-' : LET[v]; }).join(''), t:Date.now()});
+  var bytes = Array.prototype.slice.call(new TextEncoder().encode(payload));
+  var cs = checksum(bytes); bytes.push(cs[0], cs[1]);
+  var s0 = Math.floor(Math.random()*256), s1 = Math.floor(Math.random()*256);
+  var gen = ks((SEED ^ ((s0<<8)|s1))>>>0);
+  var out = [s0, s1];
+  bytes.forEach(function(b){ out.push(b ^ gen()); });
+  return 'CSCA-' + b64url(out);
+}
+
+/* ---------- screens ---------- */
+function show(name){
+  S.screen = name;
+  $('scStart').hidden  = name!=='start';
+  $('scTest').hidden   = name!=='test';
+  $('scFinish').hidden = name!=='finish';
+  $('qbtn').hidden = name!=='test';
+  closePanel();
+  window.scrollTo(0,0);
+  render();
+}
+function answered(){ return S.ans.filter(function(v){ return v!==null; }).length; }
+
+function renderStart(){
+  var cont = S.started && answered()>0;
+  $('startBtn').textContent = cont ? T('Продолжить','Continue') : T('Начать тест','Start the test');
+  $('resetBtn').hidden = !(S.started || answered()>0);
+  if(document.activeElement !== $('name')) $('name').value = S.name;
+}
+function renderTest(){
+  var i = S.idx, q = Q[i], tp = topicOf(i), n = answered();
+  $('progTxt').textContent = T('Отвечено '+n+' из '+N, 'Answered '+n+' of '+N);
+  $('progBar').style.width = (n/N*100)+'%';
+  $('whoTxt').textContent = S.name;
+  $('qTag').textContent = T(tp.ru, tp.en);
+  $('qNo').textContent = T('Вопрос '+(i+1)+' из '+N, 'Question '+(i+1)+' of '+N);
+  $('qText').innerHTML = rich(q.q);
+  $('opts').innerHTML = q.o.map(function(o,k){
+    return '<button type="button" class="opt" role="radio" aria-checked="'+(S.ans[i]===k)+'" data-k="'+k+'"><span class="bd">'+LET[k]+'</span><span>'+rich(o)+'</span></button>';
+  }).join('');
+  $('clrBtn').hidden = S.ans[i]===null;
+  $('prevBtn').disabled = i===0;
+  $('nextBtn').textContent = i===N-1 ? T('Завершить →','Finish →') : T('Вперёд →','Next →');
+  $('panelCnt').textContent = T('Отвечено '+n+' из '+N, 'Answered '+n+' of '+N);
+  $('qbtn').textContent = T('Вопросы '+n+'/'+N, 'Questions '+n+'/'+N);
+  var g = '';
+  TOPICS.forEach(function(tp){
+    g += '<div class="grp"><h3>'+T(tp.ru,tp.en)+'</h3><div class="ng">';
+    for(var k=tp.from;k<=tp.to;k++){
+      var cls = 'n' + (k===i ? ' c' : (S.ans[k]!==null ? ' a' : ''));
+      g += '<button type="button" class="'+cls+'" data-go="'+k+'" aria-label="'+T('Вопрос ','Question ')+(k+1)+(S.ans[k]!==null?T(', есть ответ',', answered'):'')+'"'+(k===i?' aria-current="true"':'')+'>'+(k+1)+'</button>';
+    }
+    g += '</div></div>';
+  });
+  $('groups').innerHTML = g;
+}
+function renderFinish(){
+  var un = [], n = answered();
+  S.ans.forEach(function(v,k){ if(v===null) un.push(k); });
+  $('finSummary').textContent = T('Вы ответили на '+n+' из '+N+' вопросов.', 'You answered '+n+' of '+N+' questions.');
+  var h = '';
+  if(un.length){
+    h = '<p style="margin:14px 0 0">'+T('Без ответа (нажмите, чтобы перейти):','Unanswered (tap to go):')+'</p><div class="chips">'+
+      un.map(function(k){ return '<button type="button" class="chip" data-go="'+k+'">'+(k+1)+'</button>'; }).join('')+'</div>';
+  }
+  $('finUn').innerHTML = h;
+  $('code').value = encode(S.name, S.ans);
+  $('copied').hidden = true;
+}
+function render(){
+  if(S.screen==='start') renderStart();
+  else if(S.screen==='test') renderTest();
+  else renderFinish();
+}
+
+/* ---------- actions ---------- */
+function validName(v){ return v.replace(/\s+/g,' ').trim().length >= 2; }
+function startTest(){
+  var v = $('name').value.replace(/[\u0000-\u001f]/g,'').replace(/\s+/g,' ').trim();
+  if(!validName(v)){
+    $('nameErr').textContent = T('Введите имя и фамилию (минимум 2 символа), чтобы начать.','Enter your full name (at least 2 characters) to start.');
+    $('name').setAttribute('aria-invalid','true'); $('name').focus(); return;
+  }
+  $('nameErr').textContent = ''; $('name').removeAttribute('aria-invalid');
+  S.name = v; S.started = true; save(); show('test');
+}
+function go(k){ S.idx = Math.min(Math.max(k,0),N-1); save(); if(S.screen!=='test') show('test'); else { renderTest(); closePanel(); } }
+function choose(k){ S.ans[S.idx] = k; save(); renderTest(); }
+function openPanel(){ $('panel').classList.add('open'); $('backdrop').hidden = false; }
+function closePanel(){ $('panel').classList.remove('open'); $('backdrop').hidden = true; }
+
+$('startBtn').addEventListener('click', startTest);
+$('name').addEventListener('keydown', function(e){ if(e.key==='Enter') startTest(); });
+$('name').addEventListener('input', function(){ if(validName($('name').value)){ $('nameErr').textContent=''; $('name').removeAttribute('aria-invalid'); } });
+$('resetBtn').addEventListener('click', function(){
+  for(var z=0;z<N;z++) S.ans[z]=null; S.idx=0; S.started=false; save(); renderStart();
+});
+$('opts').addEventListener('click', function(e){ var b = e.target.closest('.opt'); if(b) choose(+b.dataset.k); });
+$('clrBtn').addEventListener('click', function(){ S.ans[S.idx]=null; save(); renderTest(); });
+$('prevBtn').addEventListener('click', function(){ go(S.idx-1); });
+$('nextBtn').addEventListener('click', function(){ if(S.idx===N-1){ show('finish'); } else go(S.idx+1); });
+$('finBtn').addEventListener('click', function(){ show('finish'); });
+$('backBtn').addEventListener('click', function(){ show('test'); });
+$('groups').addEventListener('click', function(e){ var b = e.target.closest('[data-go]'); if(b) go(+b.dataset.go); });
+$('finUn').addEventListener('click', function(e){ var b = e.target.closest('[data-go]'); if(b) go(+b.dataset.go); });
+$('qbtn').addEventListener('click', function(){ if($('panel').classList.contains('open')) closePanel(); else openPanel(); });
+$('backdrop').addEventListener('click', closePanel);
+$('copyBtn').addEventListener('click', function(){
+  var t = $('code').value;
+  function done(){ $('copied').hidden = false; setTimeout(function(){ $('copied').hidden = true; }, 2500); }
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(done, fallback); } else fallback();
+  function fallback(){ $('code').focus(); $('code').select(); try{ document.execCommand('copy'); done(); }catch(e){} }
+});
+document.addEventListener('keydown', function(e){
+  if(S.screen!=='test' || e.target.tagName==='INPUT' || e.target.tagName==='TEXTAREA' || e.ctrlKey || e.metaKey || e.altKey) return;
+  var k = e.key.toLowerCase(), p = ['a','b','c','d'].indexOf(k);
+  if(p<0) p = ['1','2','3','4'].indexOf(k);
+  if(p>=0){ choose(p); }
+  else if(e.key==='ArrowRight' && S.idx<N-1){ go(S.idx+1); }
+  else if(e.key==='ArrowLeft' && S.idx>0){ go(S.idx-1); }
+  else if(e.key==='Escape'){ closePanel(); }
+});
+
+/* ---------- language ---------- */
+function setLang(l){
+  root.dataset.lang = l; root.lang = l;
+  document.querySelectorAll('.lang button').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.set===l)); });
+  document.title = l==='ru' ? 'Функции: домашнее задание' : 'Functions homework';
+  $('name').placeholder = l==='ru' ? 'Например: Иван Петров' : 'For example: Ivan Petrov';
+  try{ localStorage.setItem(KEY+'-lang', l); }catch(e){}
+  if($('nameErr').textContent) $('nameErr').textContent = T('Введите имя и фамилию (минимум 2 символа), чтобы начать.','Enter your full name (at least 2 characters) to start.');
+  render();
+}
+document.querySelectorAll('.lang button').forEach(function(b){ b.addEventListener('click', function(){ setLang(b.dataset.set); }); });
+
+/* ---------- init ---------- */
+load();
+var sl = null; try{ sl = localStorage.getItem(KEY+'-lang'); }catch(e){}
+setLang(sl==='en' || sl==='ru' ? sl : 'ru');
+})();
+</script>
+</body>
+</html>
